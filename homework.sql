@@ -15,10 +15,11 @@ WHERE amount BETWEEN 3.99 AND 5.99;
 
 --Question 3
 -- What films have exactly 7 copies? (search in inventory)
-SELECT *
+SELECT film_id, COUNT(*)
 FROM inventory
-WHERE film_id = 7;
---Answer: Airplane Sierra
+GROUP BY film_id
+HAVING COUNT(*) = 7;
+--Answer: 116
 
 --Question 4
 -- How many customers have the first name ‘Willie’?
@@ -77,3 +78,4 @@ GROUP BY rating
 ORDER BY COUNT(rating) DESC;
 --Answer: 5 rating categories
 --PG-13 most movies total
+
